@@ -4,6 +4,7 @@ import os
 import gc
 from tqdm import tqdm
 import wandb
+from glob import glob
 
 import torch
 import torchaudio
@@ -150,6 +151,7 @@ class Trainer:
             not exists(self.checkpoint_path)
             or not os.path.exists(self.checkpoint_path)
             or not os.listdir(self.checkpoint_path)
+            or not any(glob(os.path.join(self.checkpoint_path, '*.pt')))
         ):
             return 0
 

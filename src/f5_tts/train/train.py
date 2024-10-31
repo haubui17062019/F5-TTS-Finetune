@@ -15,7 +15,7 @@ hop_length = 256
 
 tokenizer = "custom"  # 'pinyin', 'char', or 'custom'
 dataset_name = "VietNam"
-tokenizer_path = files("f5_tts").joinpath("../../data/VietNam/vocab.txt")  # if tokenizer = 'custom', define the path to the tokenizer you want to use (should be vocab.txt)
+tokenizer_path = "./data/VietNam/vocab.txt"  # if tokenizer = 'custom', define the path to the tokenizer you want to use (should be vocab.txt)
 
 # -------------------------- Training Settings -------------------------- #
 
@@ -73,7 +73,7 @@ def main():
         learning_rate,
         num_warmup_updates=num_warmup_updates,
         save_per_updates=save_per_updates,
-        checkpoint_path=str(files("f5_tts").joinpath(f"../../ckpts/{exp_name}")),
+        checkpoint_path=f"./checkpoint/{exp_name}",
         batch_size=batch_size_per_gpu,
         batch_size_type=batch_size_type,
         max_samples=max_samples,

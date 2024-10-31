@@ -308,8 +308,8 @@ def load_dataset(
         )
 
     elif dataset_type == "CustomDataVi":
-        path_folder_wav = str(files("f5_tts").joinpath(f"../../data/{dataset_name}/wav"))
-        path_file_meta = str(files("f5_tts").joinpath(f"../../data/{dataset_name}/meta.txt"))
+        path_folder_wav = f"./data/{dataset_name}/wav"
+        path_file_meta = f"./data/{dataset_name}/meta.txt"
         train_dataset = CustomDatasetVi(path_file_meta, path_folder_wav, **mel_spec_kwargs)
 
 
