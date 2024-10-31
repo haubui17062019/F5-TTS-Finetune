@@ -2,8 +2,8 @@
 .vscode/
 tests/
 runs/
-data/
-ckpts/
+# data/
+# ckpts/
 wandb/
 results/
 
