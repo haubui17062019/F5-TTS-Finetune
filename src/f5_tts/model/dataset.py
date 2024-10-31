@@ -273,7 +273,7 @@ class DynamicBatchSampler(Sampler[list[int]]):
 def load_dataset(
     dataset_name: str,
     tokenizer: str = "char",
-    dataset_type: str = "CustomDataset",
+    dataset_type: str = "CustomDatasetVi",
     audio_type: str = "raw",
     mel_spec_module: nn.Module | None = None,
     mel_spec_kwargs: dict = dict(),
@@ -307,7 +307,7 @@ def load_dataset(
             **mel_spec_kwargs,
         )
 
-    elif dataset_type == "CustomDataVi":
+    elif dataset_type == "CustomDatasetVi":
         path_folder_wav = f"./data/{dataset_name}/wav"
         path_file_meta = f"./data/{dataset_name}/meta.txt"
         train_dataset = CustomDatasetVi(path_file_meta, path_folder_wav, **mel_spec_kwargs)

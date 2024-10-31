@@ -15,7 +15,7 @@ hop_length = 256
 
 tokenizer = "custom"  # 'pinyin', 'char', or 'custom'
 dataset_name = "VietNam"
-tokenizer_path = "./data/VietNam/vocab.txt"  # if tokenizer = 'custom', define the path to the tokenizer you want to use (should be vocab.txt)
+tokenizer_path_custom = "./data/VietNam/vocab.txt"  # if tokenizer = 'custom', define the path to the tokenizer you want to use (should be vocab.txt)
 
 # -------------------------- Training Settings -------------------------- #
 
@@ -50,7 +50,7 @@ elif exp_name == "E2TTS_Base":
 
 def main():
     if tokenizer == "custom":
-        tokenizer_path = tokenizer_path
+        tokenizer_path = tokenizer_path_custom
     else:
         tokenizer_path = dataset_name
     vocab_char_map, vocab_size = get_tokenizer(tokenizer_path, tokenizer)
