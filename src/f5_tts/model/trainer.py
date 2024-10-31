@@ -322,7 +322,7 @@ class Trainer:
                         with torch.inference_mode():
                             generated, _ = self.accelerator.unwrap_model(self.model).sample(
                                 cond=mel_spec[0][:ref_audio_len].unsqueeze(0),
-                                text=[text_inputs[0] + [" "] + text_inputs[0]],
+                                text=text_inputs,
                                 duration=ref_audio_len * 2,
                                 steps=nfe_step,
                                 cfg_strength=cfg_strength,
