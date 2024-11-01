@@ -188,7 +188,7 @@ class Trainer:
         gc.collect()
         return step
 
-    def train(self, train_dataset: Dataset, num_workers=16, resumable_with_seed: int = None, tokenizer_type: str = "char", vocab_size: int =2545):
+    def train(self, train_dataset: Dataset, num_workers=16, resumable_with_seed: int = None):
         if self.log_samples:
             from f5_tts.infer.utils_infer import load_vocoder, nfe_step, cfg_strength, sway_sampling_coef
 
@@ -248,11 +248,6 @@ class Trainer:
             train_dataloader, self.scheduler
         )  # actual steps = 1 gpu steps / gpus
         start_step = self.load_checkpoint()
-        
-        # TODO: update custom layer text-embedding
-        if tokenizer_type == "custom":
-            from f5_tts.model.backbones.mmdit import TextEmbedding
-            self.model.transformer.text_embed.text_embed = TextEmbedding(vocab_size, 512, 4)
         
         global_step = start_step
 
