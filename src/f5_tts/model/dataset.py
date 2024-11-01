@@ -273,7 +273,7 @@ class DynamicBatchSampler(Sampler[list[int]]):
 def load_dataset(
     dataset_name: str,
     tokenizer: str = "char",
-    dataset_type: str = "CustomDatasetVi",
+    dataset_type: str = "CustomDataset",
     audio_type: str = "raw",
     mel_spec_module: nn.Module | None = None,
     mel_spec_kwargs: dict = dict(),
@@ -286,7 +286,7 @@ def load_dataset(
     print("Loading dataset ...")
 
     if dataset_type == "CustomDataset":
-        rel_data_path = str(files("f5_tts").joinpath(f"../../data/{dataset_name}_{tokenizer}"))
+        rel_data_path = f"./data/{dataset_name}_{tokenizer}"
         if audio_type == "raw":
             try:
                 train_dataset = load_from_disk(f"{rel_data_path}/raw")

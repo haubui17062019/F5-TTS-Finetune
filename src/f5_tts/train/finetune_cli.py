@@ -153,7 +153,9 @@ def main():
 
     trainer.train(
         train_dataset,
-        resumable_with_seed=666,  # seed for shuffling dataset
+        resumable_with_seed=666,
+        tokenizer_type=tokenizer,
+        vocab_size=vocab_size# seed for shuffling dataset
     )
 
 
