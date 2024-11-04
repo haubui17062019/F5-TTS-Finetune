@@ -448,7 +448,7 @@ def start_training(
         cmd += f" --finetune {finetune}"
 
     if file_checkpoint_train != "":
-        cmd += f" --file_checkpoint_train {file_checkpoint_train}"
+        cmd += f" --pretrain {file_checkpoint_train}"
 
     if tokenizer_file != "":
         cmd += f" --tokenizer_path {tokenizer_file}"

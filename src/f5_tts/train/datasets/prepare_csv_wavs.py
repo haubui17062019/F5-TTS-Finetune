@@ -102,13 +102,13 @@ def save_prepped_dataset(out_dir, result, duration_list, text_vocab_set, is_fine
         for vocab in sorted(text_vocab_set):
             f.write(vocab + "\n")
 
-    if is_finetune:
-        file_vocab_finetune = PRETRAINED_VOCAB_PATH.as_posix()
-        shutil.copy2(file_vocab_finetune, voca_out_path)
-    else:
-        with open(voca_out_path, "w") as f:
-            for vocab in sorted(text_vocab_set):
-                f.write(vocab + "\n")
+    # if is_finetune:
+    #     file_vocab_finetune = PRETRAINED_VOCAB_PATH.as_posix()
+    #     shutil.copy2(file_vocab_finetune, voca_out_path)
+    # else:
+    #     with open(voca_out_path, "w") as f:
+    #         for vocab in sorted(text_vocab_set):
+    #             f.write(vocab + "\n")
 
     dataset_name = out_dir.stem
     print(f"\nFor {dataset_name}, sample count: {len(result)}")

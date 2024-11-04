@@ -1,7 +1,9 @@
 import jieba
 from pypinyin import lazy_pinyin, Style
 
-
+import os
+import os 
+os.makedirs("/content/F5-TTS-Finetune/ckpts/VietNam", exist_ok=True)
 
 def convert_char_to_pinyin(text_list, polyphone=True):
     final_text_list = []
