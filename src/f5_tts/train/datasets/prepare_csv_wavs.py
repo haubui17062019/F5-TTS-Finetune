@@ -61,7 +61,7 @@ def get_audio_duration(audio_path):
 def read_audio_text_pairs(csv_file_path):
     audio_text_pairs = []
 
-    parent = Path(csv_file_path).parent
+    parent = Path(csv_file_path).parent.joinpath("wavs")
     with open(csv_file_path, mode="r", newline="", encoding="utf-8-sig") as csvfile:
         reader = csv.reader(csvfile, delimiter="|")
         next(reader)  # Skip the header row
